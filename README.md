@@ -21,6 +21,6 @@ Completa la preparación antes de la jornada. Necesitarás una cuenta de GitHub,
 
 ## Edición
 
-Material en preparación. [Revisión de referencia](edition.json). El acceso a la plantilla debe estar habilitado para poder crear tu copia. Las slides se incorporarán a este portal cuando se cierre la edición.
+Material en preparación. [Revisión de referencia](edition.json). El acceso a la plantilla debe estar habilitado para poder crear tu copia. La [presentación](slides/README.md) está disponible en PDF.
 
 [Ayuda](SUPPORT.md) · [Licencias y créditos](LICENSE-SCOPE.md).

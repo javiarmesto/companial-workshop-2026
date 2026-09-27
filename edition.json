@@ -15,8 +15,11 @@
     "creation": "Use this template copies current main; main is locked at this ref for the event"
   },
   "slides": {
-    "status": "pending",
-    "file": null
+    "status": "published",
+    "file": "slides/Companial-2026-De-asistentes-a-ingenieria-de-agentes-v10.pdf",
+    "version": "v10",
+    "source": "OctoberWorkshops slides/OctoberWorkshops-Jornada-Completa-ES-v10.pptx",
+    "speakerNotes": false
   },
   "scheduleConfirmed": true,
   "event_details": {
