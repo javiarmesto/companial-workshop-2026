@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "event": "companial-workshop-2026",
+  "language": "es",
+  "status": "preparation",
+  "speakers": [
+    "Roberto Corella",
+    "Javier Armesto"
+  ],
+  "template": {
+    "repository": "javiarmesto/aldc-workshop-lab",
+    "documentationRef": "2ae5694319a501642a800891c2eb0b0c3c6d8e5e",
+    "refStatus": "candidate",
+    "creation": "Use this template copies current main; align main with this ref before distribution"
+  },
+  "slides": {
+    "status": "pending",
+    "file": null
+  },
+  "scheduleConfirmed": false
+}
