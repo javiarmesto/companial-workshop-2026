@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller ALDC · Companial 2026</title>
+<meta name="description" content="Página de trabajo del taller «De asistentes de IA a ingeniería de agentes»: agenda, laboratorios y prompts para copiar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F3EC; --paper-2:#FFFDF8; --grid:rgba(11,32,56,.06); --ink:#14181F; --muted:#5B6573;
+  --navy:#0B2038; --navy-2:#16324F; --cyan:#0096B8; --cyan-soft:#DDF2F7; --magenta:#C8246B; --magenta-soft:#FBE6EF;
+  --line:#D9D3C5; --code-bg:#0B2038; --code-ink:#E5F1F7;
+  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace; --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--sans);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+a{color:var(--navy-2);text-decoration-color:var(--cyan);text-underline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header.top{background:var(--navy);color:#fff}
+header.top .wrap{padding-top:28px;padding-bottom:24px}
+.meta{font:500 12px/1.4 var(--mono);letter-spacing:.06em;color:#9FD9E8;text-transform:uppercase}
+h1{font-size:clamp(26px,4vw,40px);line-height:1.15;margin:.35em 0 .2em;font-weight:700;letter-spacing:-.01em}
+.sub{color:#C9D6E2;margin:0 0 18px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:7px 12px;font-size:14px}
+.links a:hover{border-color:var(--cyan);background:rgba(0,150,184,.18)}
+.links a.primary{background:var(--cyan);border-color:var(--cyan);font-weight:600}
+nav.bar{position:sticky;top:0;z-index:5;background:rgba(246,243,236,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.bar .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:thin}
+nav.bar a{flex:0 0 auto;font:600 13px var(--mono);text-decoration:none;color:var(--navy);padding:6px 10px;border-radius:6px;border:1px solid transparent}
+nav.bar a:hover,nav.bar a.on{border-color:var(--navy);background:var(--paper-2)}
+section{padding:34px 0 8px;scroll-margin-top:56px}
+.lab{scroll-margin-top:64px}
+h2{font-size:22px;margin:0 0 14px;display:flex;align-items:baseline;gap:10px}
+h2 .tag{font:600 12px var(--mono);color:var(--cyan);letter-spacing:.06em}
+.card{background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:18px}
+.now{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;border-left:5px solid var(--cyan)}
+.now .clock{font:600 28px var(--mono);color:var(--navy)}
+.now .what{font-weight:600;font-size:18px}
+.now .next{color:var(--muted);font-size:14px}
+.now .go{font:600 14px var(--sans);background:var(--navy);color:#fff;text-decoration:none;padding:9px 14px;border-radius:6px;white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 12px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+tr.cur td{background:var(--cyan-soft)}
+tr.brk td{color:var(--muted)}
+td.t{font-family:var(--mono);white-space:nowrap}
+.labtag{font:600 12px var(--mono);background:var(--navy);color:#fff;border-radius:4px;padding:2px 7px;text-decoration:none}
+.lab{margin-bottom:22px}
+.labhead{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start}
+.labnum{font:700 30px var(--mono);color:var(--navy);line-height:1}
+.labhead h3{margin:0;font-size:21px}
+.labhead p{margin:4px 0 0;color:var(--muted)}
+.mins{font:600 13px var(--mono);color:var(--navy);border:1px solid var(--navy);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:14px 0 6px}
+.fact{border:1px dashed var(--line);border-radius:8px;padding:9px 12px;font-size:14px}
+.fact b{display:block;font:600 11px var(--mono);color:var(--cyan);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.fact.exp{border-color:var(--magenta);border-style:solid;background:var(--magenta-soft)}
+.fact.exp b{color:var(--magenta)}
+ol.steps{list-style:none;margin:14px 0 0;padding:0;counter-reset:s}
+ol.steps>li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+ol.steps>li::before{content:counter(s);font:600 13px var(--mono);color:var(--muted);padding-top:3px}
+.who{display:inline-block;font:700 11px var(--mono);letter-spacing:.06em;border-radius:4px;padding:2px 7px;margin-right:8px;vertical-align:1px}
+.who.tu{background:var(--navy);color:#fff}
+.who.agent{background:var(--cyan-soft);color:var(--navy);border:1px solid var(--cyan)}
+.who.decide{background:var(--magenta);color:#fff}
+.alt{font:600 11px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin-left:6px}
+.step-label{font-weight:600}
+.note{color:var(--magenta);font-size:14px;margin-top:4px}
+.code{position:relative;margin-top:8px}
+.code pre{margin:0;background:var(--code-bg);color:var(--code-ink);border-radius:8px;padding:14px 16px;padding-right:92px;font:13.5px/1.55 var(--mono);white-space:pre-wrap;word-break:break-word;max-height:340px;overflow:auto}
+.code pre .ph{color:#FFB3D0;background:rgba(200,36,107,.25);border-radius:3px}
+.copy{position:absolute;top:8px;right:8px;font:600 12px var(--sans);background:var(--cyan);color:#fff;border:0;border-radius:5px;padding:6px 10px;cursor:pointer}
+.copy.ok{background:#1E8A5A}
+.code .lang{position:absolute;bottom:8px;right:10px;font:500 11px var(--mono);color:#7FA3BD}
+.done{display:flex;gap:8px;align-items:center;margin-top:14px;font-size:14px;color:var(--muted)}
+.done input{width:18px;height:18px;accent-color:var(--navy)}
+.lab.isdone{opacity:.72}
+.foot-link{font-size:14px;margin-top:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.res td:first-child{font-weight:600}
+footer{padding:36px 0 50px;color:var(--muted);font-size:13px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:14px;color:var(--muted);margin:0 0 16px}
+@media (max-width:760px){
+  .now{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}
+  .labhead{grid-template-columns:auto 1fr}.labhead .mins{grid-column:2;justify-self:start}
+  .code pre{padding-right:16px;padding-top:40px}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="meta">1 oct 2026 · 09:00–17:00 CET · Microsoft Ibérica, sala Santiago Dexeus · Madrid</div>
+  <h1>De asistentes de IA a ingeniería de agentes</h1>
+  <p class="sub">Crea extensiones de Business Central con flujos de trabajo inteligentes · Roberto Corella y Javier Armesto</p>
+  <div class="links">
+    <a class="primary" href="#ahora">Qué toca ahora</a>
+    <a href="https://github.com/javiarmesto/aldc-workshop-lab">Plantilla (tu copia sale de aquí)</a>
+    <a href="https://github.com/javiarmesto/companial-workshop-2026/blob/main/MANUAL-ASISTENTE.md">Manual de preparación</a>
+    <a href="https://github.com/javiarmesto/companial-workshop-2026/tree/main/slides">Presentación</a>
+    <a href="#ayuda">Ayuda</a>
+  </div>
+</div></header>
+
+<nav class="bar"><div class="wrap" id="nav"></div></nav>
+
+<main class="wrap">
+  <section id="ahora">
+    <h2><span class="tag">AHORA</span> Qué toca</h2>
+    <div class="card now">
+      <div class="clock" id="clock">--:--</div>
+      <div><div class="what" id="what">—</div><div class="next" id="next"></div></div>
+      <a class="go" id="go" href="#agenda">Ver agenda</a>
+    </div>
+  </section>
+
+  <section id="agenda">
+    <h2><span class="tag">AGENDA</span> El día</h2>
+    <div class="card"><table id="agendaT"><thead><tr><th>Hora</th><th>Bloque</th><th>Lab</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section id="labs">
+    <h2><span class="tag">LABS</span> Los ocho laboratorios</h2>
+    <div class="legend"><span><span class="who tu">TÚ</span>lo haces tú</span><span><span class="who agent">AGENTE</span>prompt para el agente</span><span><span class="who decide">DECIDE UNA PERSONA</span>aprobación humana</span><span>Los textos entre <code>&lt;…&gt;</code> se rellenan con tus datos.</span></div>
+    <div id="labsBox"></div>
+  </section>
+
+  <section id="resultados">
+    <h2><span class="tag">TESTS</span> Resultados esperados</h2>
+    <div class="card"><table class="res"><thead><tr><th>Momento</th><th>Pasan</th><th>Fallan</th></tr></thead><tbody>
+      <tr><td>Starter sin tocar</td><td>7/12</td><td>C02, C03, C04, C11, C12</td></tr>
+      <tr><td>Tras el Lab 01</td><td>10/12</td><td>C11, C12 (esperan al Lab 05)</td></tr>
+      <tr><td>Tras el Lab 05</td><td>12/12</td><td>Ninguno</td></tr>
+    </tbody></table>
+    <p class="foot-link">Tests en <b>Test → codeunit 71300</b>. Después de cambiar código: publica App y usa <b>Publish &amp; Run</b>, y mira una ejecución nueva.</p></div>
+  </section>
+
+  <section id="ayuda">
+    <h2><span class="tag">AYUDA</span> Si te atascas</h2>
+    <div class="grid2">
+      <div class="card"><table><thead><tr><th>Síntoma</th><th>Primero comprueba</th></tr></thead><tbody>
+        <tr><td>GitHub 404</td><td>Sesión iniciada en GitHub y enlace correcto.</td></tr>
+        <tr><td>Falta aldc.yaml</td><td>Instala el toolkit en la raíz, no solo la extensión.</td></tr>
+        <tr><td>BCQuality no aparece</td><td>Carpeta hermana ../bcquality en la revisión fijada.</td></tr>
+        <tr><td>El agente no ve una herramienta</td><td>Guarda la configuración y abre un chat nuevo con ese agente.</td></tr>
+        <tr><td>C11/C12 siguen fallando tras el Lab 05</td><td>Publica App, confirma el sandbox y mira una ejecución nueva.</td></tr>
+        <tr><td>Skill duplicada</td><td>Retira solo las copias locales del ejercicio; ALDC se queda.</td></tr>
+        <tr><td>El revisor no escribe archivos</td><td>Es correcto: copia tú el Markdown que devuelve.</td></tr>
+        <tr><td>Carpeta ya existente</td><td>No la borres: retoma solo el paso que falló.</td></tr>
+      </tbody></table></div>
+      <div class="card"><p style="margin-top:0"><b>Levanta la mano</b> o avisa a Roberto o Javier con esta ficha. Quita tokens, contraseñas y datos de clientes.</p>
+        <div class="code"><button class="copy" data-copy="helpT">Copiar</button><pre id="helpT">Lab / paso:
+Operación o comando:
+Resultado esperado:
+Resultado real + mensaje exacto:
+Qué cambiaste justo antes:
+git rev-parse HEAD:</pre></div>
+        <p class="foot-link">Guía completa de ayuda: <a href="https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/docs/help.md">docs/help.md</a> · <a href="https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/docs/checkpoints.md">checkpoints</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">© 2026 Roberto Corella y Javier Armesto · Código MIT · Contenido CC BY 4.0 · Material de referencia: plantilla <code>edicion-companial-2026</code>. Tu progreso se guarda solo en este navegador.</footer>
+
+<script>
+const DATA = {"labs": [{"id": "01", "title": "Contrato y contexto", "min": 20, "guide": "https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/labs/jornada/01-contrato-y-contexto.md", "agent": "Chat nuevo · modo Agent", "goal": "Completar GetReviewStatus usando reglas explícitas.", "evidence": "evidence/lab01-run-note.md", "expect": "Suite completa C01–C12: 10/12. C11 y C12 esperan al Lab 05.", "steps": [{"who": "tu", "label": "Comprueba los requisitos del lab", "code": "./tools/Test-Lab01.ps1", "lang": "powershell"}, {"who": "tu", "label": "Prepara las primitivas del ejercicio", "code": "./tools/Prepare-Lab01.ps1", "lang": "powershell", "note": "No sobrescribas .github/copilot-instructions.md: es de ALDC."}, {"who": "agent", "label": "Petición inicial", "code": "Lee el contrato de Customer Follow-up y las instrucciones aplicables. Completa únicamente GetReviewStatus. Mantén la fecha de referencia explícita y las validaciones existentes. Usa review-date-rules para revisar los límites. Devuelve el diff y distingue resultados ejecutados de comprobaciones pendientes.", "lang": "prompt"}, {"who": "tu", "label": "Publica App y ejecuta C01–C06 y después C01–C12 (Testing → Publish & Run)"}, {"who": "agent", "label": "Documenta la evidencia", "code": "Documenta el Lab 01 en evidence/lab01-run-note.md.\nHe ejecutado <casos> en <entorno> mediante <operación>.\nResultados observados: <resultados y errores reales>.\nDistingue mis ejecuciones de tus comprobaciones estáticas.\nIndica qué instrucciones y skill se utilizaron. No implementes\nMarkReviewed, no cambies tests ni cases.csv y no hagas operaciones Git.", "lang": "prompt"}, {"who": "tu", "label": "Guarda el lab", "code": "git status --short\ngit add -- App/src/CustomerFollowUpMgt.Codeunit.al\ngit add -- .github/instructions/workshop-project.instructions.md\ngit add -- .github/instructions/workshop-al.instructions.md\ngit add -- .github/prompts/review-followup.prompt.md\ngit add -- .github/agents/followup-reviewer.agent.md\ngit add -- .github/skills/review-date-rules/\ngit add -- evidence/lab01-run-note.md\ngit diff --cached --stat\ngit diff --cached\ngit commit -m \"docs: cerrar Lab 01\"\ngit push\ngit rev-parse HEAD", "lang": "powershell"}]}, {"id": "02", "title": "Plugin utilizable", "min": 20, "guide": "https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/labs/jornada/02-plugin-utilizable.md", "agent": "Chat nuevo · modo Agent · skill del plugin", "goal": "Montar, registrar y usar un plugin local con la revisión de fechas.", "evidence": "evidence/lab02-run-note.md", "expect": "Ruta del plugin, componente usado y resultado de la revisión.", "steps": [{"who": "tu", "label": "Comprueba los requisitos del lab", "code": "./tools/Test-Lab02.ps1", "lang": "powershell"}, {"who": "tu", "label": "Prepara el paquete local", "code": "./tools/Prepare-Lab02.ps1 -Action Prepare", "lang": "powershell"}, {"who": "tu", "label": "Crea tu copia del plugin fuera del repo", "code": "$lab = (Get-Location).Path\n$plugin = Join-Path (Split-Path $lab -Parent) 'review-dates-lab'\n\nif (-not (Test-Path -LiteralPath (Join-Path $lab 'templates/plugin/plugin.json.example'))) {\n    throw 'Ejecuta este bloque desde la raiz del repositorio del laboratorio.'\n}\nif (Test-Path -LiteralPath $plugin) {\n    throw \"Ya existe $plugin. Revisa su contenido antes de continuar.\"\n}\n\nCopy-Item -LiteralPath (Join-Path $lab 'templates/plugin') -Destination $plugin -Recurse -ErrorAction Stop\nGet-ChildItem -LiteralPath $plugin -Recurse -File -Filter '*.example' |\n    Rename-Item -NewName { $_.Name -replace '\\.example$', '' } -ErrorAction Stop\n\nWrite-Host \"Paquete preparado en: $plugin\"", "lang": "powershell"}, {"who": "tu", "label": "Regístralo: Personalización → Plugins → Install from Source"}, {"who": "tu", "label": "Alternativa: registro en settings.json del usuario", "code": "\"chat.plugins.enabled\": true,\n\"chat.pluginLocations\": {\n    \"C:/Workshops/review-dates-lab\": true\n}", "lang": "json", "alt": true}, {"who": "tu", "label": "Retira los duplicados locales antes de probar", "code": "./tools/Prepare-Lab02.ps1 -Action DisableLocal", "lang": "powershell", "note": "Para volver atrás: -Action RestoreLocal"}, {"who": "agent", "label": "Usa el plugin en una sesión nueva", "code": "Revisa GetReviewStatus de Customer Follow-up usando la skill review-date-rules del plugin review-dates-lab. Contrasta el código con contract.es.md y los casos límite. No modifiques archivos. Indica el origen y la ruta de la skill utilizada, los hallazgos y las comprobaciones pendientes. Consulta además mediante Microsoft Learn MCP la API WorkDate y explica su relación con la fecha explícita que recibe esta función. Si no puedes acceder a la skill o al MCP, indícalo.", "lang": "prompt"}, {"who": "agent", "label": "Resume la sesión como evidencia", "code": "Resume esta sesión para evidence/lab02-run-note.md:\nruta y origen de la skill realmente utilizada, revisión realizada,\nconsulta Microsoft Learn y resultado, limitaciones y archivos cambiados.\nNo atribuyas el origen de un servidor MCP al plugin sin comprobarlo.\nDevuelve el texto en el chat. No modifiques archivos ni uses Git.", "lang": "prompt"}, {"who": "tu", "label": "Guarda el lab", "code": "git status --short\ngit add -u -- .github/agents/followup-reviewer.agent.md .github/prompts/review-followup.prompt.md .github/skills/review-date-rules/\ngit add -- evidence/lab02-run-note.md\ngit diff --cached --stat\ngit diff --cached\ngit commit -m \"docs: cerrar Lab 02\"\ngit push\ngit rev-parse HEAD", "lang": "powershell"}]}, {"id": "03", "title": "Una mejora observable", "min": 15, "guide": "https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/labs/jornada/03-mejora-observable.md", "agent": "Chat nuevo · modo Agent", "goal": "Mejorar una revisión a partir de una señal real y comparar antes y después.", "evidence": "evidence/lab03-before-after.md", "expect": "Un único cambio y su efecto observado. «Sin defecto inicial» también es un resultado válido.", "steps": [{"who": "tu", "label": "Comprueba los requisitos del lab", "code": "./tools/Test-Lab03.ps1", "lang": "powershell"}, {"who": "tu", "label": "Edita la skill en tu copia del plugin", "code": "C:\\Workshops\\review-dates-lab\\skills\\review-date-rules\\SKILL.md", "lang": "prompt", "note": "Es la copia del plugin, no templates/plugin."}, {"who": "tu", "label": "Añade esta sección a la skill", "code": "## Interpretar los casos del taller\n\nEn cases.csv, la columna starter_expected describe el resultado esperado\ndel starter original, antes de resolver los TODOs. No debe actualizarse\nal completar un laboratorio. Contrasta el comportamiento actual con el\ncontrato y los resultados esperados de la etapa; registra los resultados\nobservados en evidence/. No presentes la diferencia respecto a\nstarter_expected como un defecto del código ni del archivo de casos.", "lang": "markdown"}, {"who": "agent", "label": "Repite la misma revisión en un chat nuevo", "code": "Revisa GetReviewStatus de Customer Follow-up usando la skill review-date-rules del plugin review-dates-lab. Contrasta el código con contract.es.md y los casos límite. No modifiques archivos. Indica el origen y la ruta de la skill utilizada, los hallazgos y las comprobaciones pendientes. Consulta además mediante Microsoft Learn MCP la API WorkDate y explica su relación con la fecha explícita que recibe esta función. Si no puedes acceder a la skill o al MCP, indícalo.", "lang": "prompt"}, {"who": "agent", "label": "Redacta la evidencia antes/después", "code": "Redacta la evidencia del Lab 03 a partir de las dos respuestas que\nte proporciono y del cambio exacto de la skill.\nUsa como antes la respuesta real del Lab 02. Registra rutas, cambio,\nefecto observado y diferencias de herramientas o contexto.\nNo busques más logs ni repitas tests. No inventes una mejora si no\nla hubo ni atribuyas causalidad exclusiva a una sola ejecución.\nDevuelve el texto en el chat para evidence/lab03-before-after.md.\nNo modifiques archivos ni uses Git.", "lang": "prompt"}, {"who": "tu", "label": "Guarda el lab", "code": "git status --short\ngit add -- evidence/lab03-before-after.md\ngit diff --cached --stat\ngit diff --cached\ngit commit -m \"docs: cerrar Lab 03\"\ngit push\ngit rev-parse HEAD", "lang": "powershell"}]}, {"id": "04", "title": "Requisito a especificación", "min": 20, "extra": "+ 5 de revisión cruzada", "guide": "https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/labs/jornada/04-requisito-a-especificacion.md", "agent": "al-architect → al-spec.create (AL Spec Agent)", "goal": "Obtener una especificación que otra persona pueda revisar.", "evidence": "Arquitectura y spec en .github/plans", "expect": "Arquitectura y spec aprobadas, con criterios BCQuality citados. Todavía sin código.", "steps": [{"who": "tu", "label": "Comprueba los requisitos del lab", "code": "./tools/Test-Lab04.ps1", "lang": "powershell"}, {"who": "agent", "label": "Comprueba símbolos (al-architect)", "code": "Comprueba tu acceso a símbolos AL consultando Table Customer.\nSi la herramienta requiere cargar paquetes, carga los del proyecto App\ny repite la consulta. Devuelve herramienta, parámetros y resultado.\nSi no puedes, indica la limitación concreta sin inventar su causa.\nNo modifiques código ni confundas consultar símbolos con compilar App.", "lang": "prompt"}, {"who": "agent", "label": "Petición al Architect", "code": "Analiza Customer Follow-up con el contrato y el starter. Define alcance, objetos, dependencias y separación entre interfaz y lógica. Consulta los símbolos y el conocimiento BCQuality disponible que resulte pertinente. Expón decisiones abiertas y criterios de diseño con su origen. Entrega arquitectura; todavía no implementes.", "lang": "prompt"}, {"who": "decide", "label": "Aprueba la arquitectura", "code": "Apruebo la arquitectura revisada para el taller, sin eventos nuevos\nOnBefore/OnAfter. Registra mi aprobación y la evidencia de fuentes\ny símbolos realmente consultados. No implementes ni delegues código.", "lang": "prompt"}, {"who": "agent", "label": "Petición al Spec Agent (al-spec.create)", "code": "A partir de la arquitectura aprobada, especifica GetReviewStatus y MarkReviewed. Incluye entradas, validaciones, efectos, casos C01–C12 y límites del alcance. Declara los criterios BCQuality seleccionados y sus referencias en .bcq-criteria.json. Separa las decisiones pendientes. No generes todavía el código AL.", "lang": "prompt"}, {"who": "decide", "label": "Aprueba la especificación", "code": "Apruebo la especificación revisada. Registra la aprobación y actualiza\nsu estado y memory.md. El siguiente paso docente será Conductor en\nel Lab 05, aunque el incremento sea LOW. No cambies su complejidad\nni inicies implementación. Si hay conflicto de instrucciones, indícalo.", "lang": "prompt"}, {"who": "tu", "label": "Guarda el lab", "code": "git status --short\n# Repite esta línea para cada archivo real del Lab 04:\ngit add -- '<ruta-del-documento>'\ngit diff --cached\ngit commit -m \"docs: aprobar arquitectura y especificacion del Lab 04\"\ngit push\ngit rev-parse HEAD", "lang": "powershell"}]}, {"id": "05", "title": "Incremento implementado", "min": 25, "guide": "https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/labs/jornada/05-incremento-implementado.md", "agent": "AL Development Conductor", "goal": "Completar MarkReviewed y comprobarlo con C01–C12.", "evidence": "evidence/lab05-run-note.md", "expect": "12/12 tras publicar App y ejecutar de nuevo. Un 10/12 antiguo no justifica tocar la lógica.", "steps": [{"who": "tu", "label": "Comprueba los requisitos del lab", "code": "./tools/Test-Lab05.ps1", "lang": "powershell"}, {"who": "agent", "label": "Pide el plan y espera", "code": "Usa la arquitectura y especificación aprobadas de Customer Follow-up.\nInvoco Conductor para practicar el recorrido del taller aunque sea LOW.\nPlanifica una fase mínima para implementar solo MarkReviewed y delegar\nimplementación y revisión. Conserva GetReviewStatus, GetNextReviewDate,\nfirmas, objetos, validaciones y tests.\nPresenta el plan y espera mi aprobación antes de implementar o delegar\ncambios. Si hay conflicto con tus instrucciones, explícalo.\nLa aceptación requiere resultados reales de compilación y C01–C12.", "lang": "prompt"}, {"who": "decide", "label": "Aprueba el plan", "code": "Apruebo el plan. Guárdalo y procede con implementación delegada y\nrevisión. Si necesitas publicación o tests manuales, indica la operación\ny espera mis resultados. No presentes operaciones pendientes como hechas.\nNo hagas operaciones de escritura en Git.", "lang": "prompt"}, {"who": "tu", "label": "Publica App (AL: Publish without debugging) y ejecuta C01–C12 con Publish & Run"}, {"who": "agent", "label": "Comunica tus resultados reales", "code": "He ejecutado manualmente <casos> tras publicar App en <sandbox>.\nResultado real: <resultado y errores, si existen>.\nRegístralo en evidence/lab05-run-note.md con fecha <fecha>, atribuyéndome\nla ejecución. No inventes logs ni capturas.\nActualiza el cierre, plan y memory.md. Si hay fallos, conserva la\naceptación pendiente. Distingue la revisión directa de criterios de la\nejecución del flujo BCQuality y comprueba los recuentos del informe.\nNo cambies más código ni tests, no uses Git y no empieces el Lab 06.", "lang": "prompt"}, {"who": "tu", "label": "Guarda el lab", "code": "git add -- App/src/CustomerFollowUpMgt.Codeunit.al evidence/lab05-run-note.md\n# Repite para cada documento del plan o revisión:\ngit add -- '<ruta-del-documento>'\ngit diff --cached\ngit commit -m \"feat: completar MarkReviewed y validar Lab 05\"\ngit push\ngit rev-parse HEAD", "lang": "powershell"}, {"who": "agent", "label": "Después de comer · revisión (revisor de solo lectura)", "code": "Revisa el diff frente a la especificación aprobada. Aplica los criterios de calidad seleccionados. Para cada hallazgo, indica archivo, comportamiento afectado, evidencia y corrección propuesta. No modifiques el código durante esta revisión. Distingue lo revisado estáticamente de lo ejecutado.", "lang": "prompt"}]}, {"id": "06", "title": "Revisión citada", "min": 15, "guide": "https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/labs/jornada/06-revision-citada.md", "agent": "AL Developer Reviewer", "goal": "Seguir un criterio BCQuality desde su fuente hasta una decisión.", "evidence": "evidence/lab06-bcquality.md", "expect": "met / unmet / not evaluated con fuente y evidencia. Cero hallazgos es válido.", "steps": [{"who": "tu", "label": "Comprueba los requisitos del lab", "code": "./tools/Test-Lab06.ps1", "lang": "powershell"}, {"who": "agent", "label": "Prompt principal (rellena los <…>)", "code": "Comenzamos el Lab 06 de Customer Follow-up: revisión citada.\nRepositorio: <propietario/repositorio>.\nCommit base: <commit-base>.\nCommit del incremento: <commit-lab05>.\nResultados aportados por el participante: <casos y resultados reales>.\nNo repitas los tests ni presentes esa ejecución como tuya.\n\n1. Obtén el diff de App/src/CustomerFollowUpMgt.Codeunit.al mediante\nGit en lectura o herramientas GitHub equivalentes. Si usas el patch de\nun commit, verifica que su padre es la base; si no, compara ambas refs.\nSi no tienes ninguna vía, pide el diff y espera antes de revisar.\n\n2. Lee aldc.yaml y el pipeline ALDC. Sigue el punto de entrada y el\nflujo de revisión BCQuality configurado. Identifica las instrucciones\ncargadas, selección de skill, trabajo realizado y limitaciones.\nUna skill puede ejecutarse siguiendo sus instrucciones; no requiere\npor definición una llamada a un servicio externo.\n\n3. Selecciona de la especificación el criterio sobre transacción\nimplícita y ausencia de Commit explícito. Lee su fuente real,\nexplica por qué aplica y contrástala con el diff verificado.\n\n4. Devuelve fuente/ruta, evidencia de código, resultado met/unmet/\nnot evaluated y decisión de conservar o proponer corrección.\nNo es obligatorio encontrar defectos.\n\nSepara el resultado del criterio de la cobertura del flujo BCQuality.\nNo marques ejecutado solo por leer su entrada: explica los pasos que\nrealmente has aplicado. Distingue revisión fijada en configuración\nde revisión del clon comprobada.\nDevuelve la evidencia en el chat. No escribas archivos, no modifiques\nAL ni tests y no ejecutes operaciones de escritura en Git.", "lang": "prompt"}, {"who": "tu", "label": "Si el agente no puede obtener el diff", "code": "git diff <commit-base> <commit-lab05> -- App/src/CustomerFollowUpMgt.Codeunit.al", "lang": "powershell", "alt": true}, {"who": "agent", "label": "Resume la revisión como evidencia", "code": "Resume la revisión anterior para evidence/lab06-bcquality.md.\nIncluye commits y vía de obtención del diff, criterio/fuente, aplicación,\nresultado, decisión y estado real del flujo BCQuality.\nConserva las limitaciones y la atribución de los tests al participante.\nDevuelve el Markdown en el chat, sin escribir archivos ni usar Git.", "lang": "prompt"}, {"who": "tu", "label": "Guarda el lab", "code": "git add -- evidence/lab06-bcquality.md\ngit diff --cached\ngit commit -m \"docs: registrar revision citada del Lab 06\"\ngit push\ngit rev-parse HEAD", "lang": "powershell"}]}, {"id": "07", "title": "Contexto como dependencia", "min": 20, "guide": "https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/labs/jornada/07-contexto-como-dependencia.md", "agent": "Modo Agent en la ventana de apm-consumer", "goal": "Instalar y usar una skill desde un paquete del equipo con APM.", "evidence": "evidence/lab07-apm.md (en tu repo principal)", "expect": "install, --frozen y audit correctos; la skill review-al-evidence localizada y usada.", "steps": [{"who": "tu", "label": "Comprueba los requisitos del lab", "code": "./tools/Test-Lab07.ps1", "lang": "powershell"}, {"who": "tu", "label": "Instala el paquete en apm-consumer", "code": "$lab = 'C:\\Workshops\\mi-workshop'\nSet-Location -LiteralPath $lab\nif (Test-Path '.\\apm-consumer') {\n    throw 'apm-consumer ya existe; revisa su contenido antes de continuar.'\n}\nNew-Item -ItemType Directory -Path '.\\apm-consumer' | Out-Null\nSet-Location '.\\apm-consumer'\n\napm --version\nif ($LASTEXITCODE -ne 0) { throw 'APM no está disponible en esta terminal.' }\napm install ../packages/october-workshop-primitives --target copilot\nif ($LASTEXITCODE -ne 0) { throw 'Instalación fallida; conserva el diagnóstico.' }\nGet-Content .\\apm.yml\nGet-Content .\\apm.lock.yaml\napm install --frozen --target copilot\nif ($LASTEXITCODE -ne 0) { throw 'Instalación frozen fallida; revisa el diagnóstico.' }\napm audit\nif ($LASTEXITCODE -ne 0) { throw 'Audit requiere revisión; conserva sus hallazgos.' }\nGet-Content .\\.agents\\skills\\review-al-evidence\\SKILL.md", "lang": "powershell"}, {"who": "tu", "label": "Abre el consumidor en otra ventana", "code": "code-insiders -n .\n# Si utilizas VS Code estable, ejecuta en su lugar: code -n .", "lang": "powershell"}, {"who": "agent", "label": "Usa la skill instalada", "code": "Usa la skill review-al-evidence instalada en este consumidor.\nIndica su ruta real y lee sus instrucciones antes de revisar.\nTe proporciono esta evidencia del taller: <pegar informe real>.\nDistingue especificación, revisión estática, compilación y tests.\nSeñala información ausente sin inventarla. No modifiques código,\nno ejecutes tests y devuelve el resultado en el chat.", "lang": "prompt"}, {"who": "agent", "label": "Prepara la evidencia", "code": "Prepara el texto para evidence/lab07-apm.md a partir de las salidas\nAPM y la revisión que te proporciono. Incluye versión, comandos,\nresultados reales, rutas y origen de la skill, y qué quedó pendiente.\nNo afirmes reproducibilidad o auditoría correcta sin sus resultados.\nDevuelve Markdown en el chat. No uses Git ni escribas archivos.", "lang": "prompt"}, {"who": "tu", "label": "Vuelve al repo principal y guarda", "code": "# Vuelve a la terminal del repositorio principal; adapta esta ruta:\nSet-Location -LiteralPath 'C:\\Workshops\\mi-workshop'\ngit add -- evidence/lab07-apm.md\ngit diff --cached\ngit commit -m \"docs: registrar dependencia de contexto del Lab 07\"\ngit push", "lang": "powershell"}]}, {"id": "08", "title": "Entregar a otra persona", "min": 10, "extra": "+ 5 de diseño de vuestro flujo", "guide": "https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/labs/jornada/08-entregar-a-otra-persona.md", "agent": "Modo Agent · lectura del proyecto", "goal": "Que otra pareja pueda entender y comprobar el incremento.", "evidence": "evidence/lab08-handoff.md · lab08-team-flow.md", "expect": "Aceptación o devolución concreta de la pareja receptora. Un autoensayo no es aceptación.", "steps": [{"who": "tu", "label": "Comprueba los requisitos del lab", "code": "./tools/Test-Lab08.ps1", "lang": "powershell"}, {"who": "agent", "label": "Prepara la entrega", "code": "Prepara una entrega de Customer Follow-up para otra pareja.\nLocaliza requisito/spec aprobada, diff o commits, revisión, resultados\ny recorrido funcional realmente registrados. Indica rutas y pendientes.\nDistingue pruebas ejecutadas de expectativas; no inventes aceptación.\nDevuelve en el chat una ficha para evidence/lab08-handoff.md.\nNo modifiques código ni tests y no uses Git.", "lang": "prompt"}, {"who": "agent", "label": "Pareja receptora: revisa la entrega", "code": "Revisa esta entrega como apoyo a la pareja receptora.\nComprueba que se puede entender el requisito, identificar el cambio\ny localizar las evidencias. Señala ausencias concretas.\nPropón un caso de fecha y una comprobación de persistencia para que\nla pareja los reproduzca. No afirmes haberlos ejecutado.\nDevuelve recomendación razonada; la aceptación la decide la persona.\nNo escribas archivos ni modifiques código.", "lang": "prompt"}, {"who": "decide", "label": "La pareja receptora acepta o devuelve", "code": "La pareja receptora ha comprobado <casos y resultados reales>.\nSu decisión es <aceptar/devolver> por <motivo>.\nRedacta la sección de aceptación de evidence/lab08-handoff.md,\natribuyendo las comprobaciones y decisión a la pareja, no al agente.\nIncluye los pendientes. Devuelve el texto sin usar Git.", "lang": "prompt"}, {"who": "agent", "label": "Diseñad vuestro flujo", "code": "Nuestro cambio frecuente es <cambio del backlog>.\nPropón un flujo breve con contrato, responsabilidades, decisión humana\ny evidencia de aceptación. Explica qué paso aporta cada comprobación.\nDevuelve una propuesta para revisar, no una política ya aprobada.", "lang": "prompt"}, {"who": "tu", "label": "Guarda el cierre", "code": "git add -- evidence/lab08-handoff.md evidence/lab08-team-flow.md\ngit diff --cached\ngit commit -m \"docs: registrar entrega y flujo del equipo del Lab 08\"\ngit push\ngit rev-parse HEAD", "lang": "powershell"}]}], "agenda": [["09:00", "09:20", "Del asistente al proceso", null], ["09:20", "10:10", "Primitivas, instrucciones por capas y reglas de fechas", "01"], ["10:10", "10:45", "Primer plugin", "02"], ["10:45", "11:00", "Descanso", null], ["11:00", "11:30", "Observar y mejorar", "03"], ["11:30", "12:30", "ALDC, arquitectura y especificación", "04"], ["12:30", "13:15", "Implementación delegada", "05"], ["13:15", "14:15", "Comida", null], ["14:15", "14:41", "Revisión y corrección", "05"], ["14:41", "15:11", "BCQuality: criterio, cita y evidencia", "06"], ["15:11", "15:30", "Aceptación y demo en Business Central", "05"], ["15:30", "15:45", "Descanso", null], ["15:45", "16:20", "APM: distribuir el contexto del equipo", "07"], ["16:20", "16:50", "Entrega entre parejas y vuestro flujo", "08"], ["16:50", "17:00", "Retrospectiva", null]]};
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const hl = s => esc(s).replace(/&lt;[^&\n]{1,60}?&gt;/g, m => `<span class="ph">${m}</span>`);
+const store = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set(k,v){ try { localStorage.setItem(k,v); } catch(e){} } };
+
+// nav + labs
+$('#nav').innerHTML = ['<a href="#ahora">Ahora</a>','<a href="#agenda">Agenda</a>'].concat(DATA.labs.map(l => `<a href="#lab${l.id}">Lab ${l.id}</a>`)).concat(['<a href="#resultados">Tests</a>','<a href="#ayuda">Ayuda</a>']).join('');
+const whoTxt = {tu:'TÚ', agent:'AGENTE', decide:'DECIDE UNA PERSONA'};
+let n = 0;
+$('#labsBox').innerHTML = DATA.labs.map(l => `
+<article class="card lab" id="lab${l.id}">
+  <div class="labhead"><div class="labnum">${l.id}</div>
+    <div><h3>${esc(l.title)}</h3><p>${esc(l.goal)}</p></div>
+    <span class="mins">≈ ${l.min} min${l.extra ? ' ' + esc(l.extra) : ''}</span></div>
+  <div class="facts">
+    <div class="fact"><b>Agente</b>${esc(l.agent)}</div>
+    <div class="fact"><b>Evidencia</b><code>${esc(l.evidence)}</code></div>
+    <div class="fact exp"><b>Resultado esperado</b>${esc(l.expect)}</div>
+  </div>
+  <ol class="steps">${l.steps.map(s => {
+    let code = '';
+    if (s.code) { const id = 'c' + (n++); code = `<div class="code"><button class="copy" data-copy="${id}">Copiar</button><pre id="${id}">${hl(s.code)}</pre><span class="lang">${esc(s.lang)}</span></div>`; }
+    return `<li><div><span class="who ${s.who}">${whoTxt[s.who]}</span><span class="step-label">${esc(s.label)}</span>${s.alt ? '<span class="alt">ALTERNATIVA</span>' : ''}${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}${code}</div></li>`;
+  }).join('')}</ol>
+  <label class="done"><input type="checkbox" data-lab="${l.id}"> Lab terminado y guardado</label>
+  <div class="foot-link">Guía completa: <a href="${l.guide}">labs/jornada/${l.guide.split('/').pop()}</a></div>
+</article>`).join('');
+
+document.querySelectorAll('input[data-lab]').forEach(cb => {
+  const k = 'aldc-companial-lab' + cb.dataset.lab;
+  cb.checked = store.get(k) === '1';
+  cb.closest('.lab').classList.toggle('isdone', cb.checked);
+  cb.addEventListener('change', () => { store.set(k, cb.checked ? '1' : '0'); cb.closest('.lab').classList.toggle('isdone', cb.checked); });
+});
+
+document.addEventListener('click', async e => {
+  const b = e.target.closest('.copy'); if (!b) return;
+  const text = document.getElementById(b.dataset.copy).innerText;
+  try { await navigator.clipboard.writeText(text); }
+  catch (err) { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch(_){} t.remove(); }
+  b.textContent = 'Copiado'; b.classList.add('ok'); setTimeout(() => { b.textContent = 'Copiar'; b.classList.remove('ok'); }, 1500);
+});
+
+// agenda + now (Europe/Madrid)
+const tb = $('#agendaT tbody');
+tb.innerHTML = DATA.agenda.map((a, i) => `<tr data-i="${i}" class="${a[3] ? '' : 'brk'}"><td class="t">${a[0]}–${a[1]}</td><td>${esc(a[2])}</td><td>${a[3] ? `<a class="labtag" href="#lab${a[3]}">${a[3]}</a>` : ''}</td></tr>`).join('');
+const mins = s => { const [h, m] = s.split(':').map(Number); return h * 60 + m; };
+function tick() {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('es-ES', {timeZone:'Europe/Madrid', year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', hour12:false}).formatToParts(new Date()).map(p => [p.type, p.value]));
+  const hhmm = `${parts.hour}:${parts.minute}`, day = `${parts.year}-${parts.month}-${parts.day}`;
+  $('#clock').textContent = hhmm;
+  tb.querySelectorAll('tr').forEach(r => r.classList.remove('cur'));
+  const what = $('#what'), next = $('#next'), go = $('#go');
+  if (day < '2026-10-01') { what.textContent = 'Antes del taller: completa el manual de preparación'; next.textContent = 'Nos vemos el 1 de octubre a las 09:00 en Microsoft Ibérica (Madrid).'; go.textContent = 'Abrir manual'; go.href = 'https://github.com/javiarmesto/companial-workshop-2026/blob/main/MANUAL-ASISTENTE.md'; return; }
+  if (day > '2026-10-01') { what.textContent = 'El taller ha terminado · gracias'; next.textContent = 'Tu código y tus evidencias siguen en tu copia de la plantilla.'; go.textContent = 'Ver labs'; go.href = '#labs'; return; }
+  const now = mins(hhmm); const i = DATA.agenda.findIndex(a => now >= mins(a[0]) && now < mins(a[1]));
+  if (i < 0) { what.textContent = now < mins('09:00') ? 'Empezamos a las 09:00' : 'Jornada terminada'; next.textContent = now < mins('09:00') ? 'Abre VS Code con tu workspace y ten a mano GitHub y tu sandbox.' : ''; go.textContent = 'Ver agenda'; go.href = '#agenda'; return; }
+  const a = DATA.agenda[i], nx = DATA.agenda[i + 1];
+  tb.querySelector(`tr[data-i="${i}"]`).classList.add('cur');
+  what.textContent = `${a[0]}–${a[1]} · ${a[2]}`;
+  next.textContent = nx ? `Después: ${nx[0]} · ${nx[2]}` : '';
+  if (a[3]) { go.textContent = `Ir al Lab ${a[3]}`; go.href = `#lab${a[3]}`; } else { go.textContent = 'Ver agenda'; go.href = '#agenda'; }
+}
+tick(); setInterval(tick, 30000);
+</script>
+</body>
+</html>
