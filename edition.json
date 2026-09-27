@@ -17,5 +17,12 @@
     "status": "pending",
     "file": null
   },
-  "scheduleConfirmed": false
+  "scheduleConfirmed": true,
+  "event_details": {
+    "date": "2026-10-01",
+    "time": "09:00-17:00 CET",
+    "venue": "Microsoft Ibérica, Sala Santiago Dexeus, Madrid",
+    "format": "in-person, max 24 participants",
+    "source": "https://companial.com/workshops/de-asistentes-de-ia-a-ingenieria-de-agentes-crea-extensiones-de-business-central-con-flujos-de-trabajo-inteligentes/"
+  }
 }

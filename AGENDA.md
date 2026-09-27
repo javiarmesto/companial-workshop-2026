@@ -1,6 +1,6 @@
 # Agenda de trabajo · jornada completa
 
-Horario propuesto 09:00–17:00; confirma la convocatoria del organizador. Incluye comida y dos descansos.
+1 de octubre de 2026, 09:00–17:00 (CET), en Microsoft Ibérica (Madrid), según la [convocatoria de Companial](https://companial.com/workshops/de-asistentes-de-ia-a-ingenieria-de-agentes-crea-extensiones-de-business-central-con-flujos-de-trabajo-inteligentes/). Los tramos internos son orientativos. Incluye comida y dos descansos.
 
 | Horario | Bloque | Lab |
 |---|---|---|

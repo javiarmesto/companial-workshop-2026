@@ -15,7 +15,7 @@ Este repositorio es la entrada de la sesión. Tu código y tus evidencias van en
 
 Completa la preparación antes de la jornada. Necesitarás una cuenta de GitHub, acceso a GitHub Copilot, VS Code/Insiders con las herramientas indicadas y un sandbox de Business Central. Usa tus conexiones y confirma con los ponentes la organización del sandbox.
 
-Fecha, sede y horario definitivo: consulta la convocatoria del organizador. [Agenda de trabajo propuesta](AGENDA.md).
+**1 de octubre de 2026, 09:00–17:00 (CET)** · Microsoft Ibérica, sala Santiago Dexeus, Madrid · Presencial, máximo 24 participantes. Datos de la [convocatoria de Companial](https://companial.com/workshops/de-asistentes-de-ia-a-ingenieria-de-agentes-crea-extensiones-de-business-central-con-flujos-de-trabajo-inteligentes/). [Agenda de trabajo](AGENDA.md).
 
 ## Edición
 
