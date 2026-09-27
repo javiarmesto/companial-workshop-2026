@@ -5,7 +5,9 @@ Crea extensiones de Business Central con flujos de trabajo inteligentes.
 
 **Roberto Corella y Javier Armesto** · Jornada completa en castellano · GitHub Copilot Chat.
 
-**[Empieza aquí](START-HERE.md)** · [Agenda](AGENDA.md) · [Laboratorios](LABS.md) · [Presentación](slides/README.md)
+**[Manual del asistente: prepárate antes del 1 de octubre](MANUAL-ASISTENTE.md)**
+
+[Empieza aquí](START-HERE.md) · [Agenda](AGENDA.md) · [Laboratorios](LABS.md) · [Presentación](slides/README.md)
 
 Trabajaremos sobre Customer Follow-up: reglas de fechas, revisión persistida y un proceso que otra persona pueda comprobar. Practicarás instrucciones, skills, un plugin, diseño y especificación con ALDC, implementación delegada, revisión BCQuality y distribución de contexto con APM.
 
