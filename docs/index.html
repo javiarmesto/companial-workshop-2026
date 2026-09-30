@@ -84,6 +84,12 @@ ol.steps>li::before{content:counter(s);font:600 13px var(--mono);color:var(--mut
 .foot-link{font-size:14px;margin-top:10px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .res td:first-child{font-weight:600}
+.res2{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:18px;align-items:start}
+.qr{text-align:center}.qr img{width:100%;max-width:220px;image-rendering:pixelated;border:1px solid var(--line);border-radius:8px;background:#fff}
+.qr b{display:block;margin-top:6px}.qr small{color:var(--muted)}
+ul.lk{list-style:none;margin:0;padding:0}ul.lk li{padding:10px 0;border-bottom:1px solid var(--line)}ul.lk li:last-child{border-bottom:0}
+ul.lk b{display:block}ul.lk a{font:13px var(--mono);word-break:break-all}
+@media (max-width:760px){.res2{grid-template-columns:1fr 1fr}.res2 .card.aldc{grid-column:1/-1}}
 footer{padding:36px 0 50px;color:var(--muted);font-size:13px}
 .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:14px;color:var(--muted);margin:0 0 16px}
 @media (max-width:760px){
@@ -103,7 +109,7 @@ footer{padding:36px 0 50px;color:var(--muted);font-size:13px}
     <a class="primary" href="#ahora">Qué toca ahora</a>
     <a href="https://github.com/javiarmesto/aldc-workshop-lab">Plantilla (tu copia sale de aquí)</a>
     <a href="https://github.com/javiarmesto/companial-workshop-2026/blob/main/MANUAL-ASISTENTE.md">Manual de preparación</a>
-    <a href="#reto-desde-cero">Reto desde cero</a>
+    <a href="#recursos">Recursos y ALDC</a>
     <a href="#ayuda">Ayuda</a>
   </div>
 </div></header>
@@ -131,16 +137,6 @@ footer{padding:36px 0 50px;color:var(--muted);font-size:13px}
     <div id="labsBox"></div>
   </section>
 
-  <section id="reto-desde-cero">
-    <h2><span class="tag">RETO OPCIONAL</span> Desarrollar desde cero con ALDC</h2>
-    <div class="card">
-      <p style="margin-top:0"><b>Customer Follow-up desde requisitos.</b> Después de los ocho laboratorios, empieza con el encargo de negocio y un proyecto AL vacío en otra carpeta.</p>
-      <p>Prepara arquitectura y especificación, revisa las decisiones con una persona, implementa el cambio y registra las comprobaciones y la revisión.</p>
-      <p><a href="https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/customerfollowup-requisitos/README.md"><b>Abrir el ejercicio y preparar el proyecto</b></a> · <a href="https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/customerfollowup-requisitos/requirements.es.md">Leer los requisitos de negocio</a></p>
-      <p class="foot-link">La guía del reto en <code>main</code> contiene sus instrucciones de preparación. Los ocho laboratorios mantienen la revisión de la edición.</p>
-    </div>
-  </section>
-
   <section id="resultados">
     <h2><span class="tag">TESTS</span> Resultados esperados</h2>
     <div class="card"><table class="res"><thead><tr><th>Momento</th><th>Pasan</th><th>Fallan</th></tr></thead><tbody>
@@ -149,6 +145,19 @@ footer{padding:36px 0 50px;color:var(--muted);font-size:13px}
       <tr><td>Tras el Lab 05</td><td>12/12</td><td>Ninguno</td></tr>
     </tbody></table>
     <p class="foot-link">Tests en <b>Test → codeunit 71300</b>. Después de cambiar código: publica App y usa <b>Publish &amp; Run</b>, y mira una ejecución nueva.</p></div>
+  </section>
+
+  <section id="recursos">
+    <h2><span class="tag">RECURSOS</span> Repositorios del taller y ALDC</h2>
+    <div class="res2">
+      <div class="card qr"><img alt="QR del portal de la jornada" src="data:image/png;base64,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"><b>Portal de la jornada</b><small>Manual, agenda y esta página</small><div class="foot-link"><a href="https://github.com/javiarmesto/companial-workshop-2026">companial-workshop-2026</a></div></div>
+      <div class="card qr"><img alt="QR de la plantilla de prácticas" src="data:image/png;base64,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"><b>Plantilla de prácticas</b><small>Use this template → tu copia</small><div class="foot-link"><a href="https://github.com/javiarmesto/aldc-workshop-lab">aldc-workshop-lab</a></div></div>
+      <div class="card aldc"><ul class="lk">
+        <li><b>ALDC en GitHub</b><a href="https://github.com/javiarmesto/ALDC-AL-Development-Collection">github.com/javiarmesto/ALDC-AL-Development-Collection</a></li>
+        <li><b>ALDC en VS Code Marketplace</b><a href="https://marketplace.visualstudio.com/items?itemName=javierarmestogonzalez.al-development-collection">javierarmestogonzalez.al-development-collection</a></li>
+        <li><b>Instalar la versión del taller</b><div class="code"><button class="copy" data-copy="aldcI">Copiar</button><pre id="aldcI">code --install-extension javierarmestogonzalez.al-development-collection@5.0.0</pre></div></li>
+      </ul></div>
+    </div>
   </section>
 
   <section id="ayuda">
@@ -187,7 +196,7 @@ const hl = s => esc(s).replace(/&lt;[^&\n]{1,60}?&gt;/g, m => `<span class="ph">
 const store = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set(k,v){ try { localStorage.setItem(k,v); } catch(e){} } };
 
 // nav + labs
-$('#nav').innerHTML = ['<a href="#ahora">Ahora</a>','<a href="#agenda">Agenda</a>'].concat(DATA.labs.map(l => `<a href="#lab${l.id}">Lab ${l.id}</a>`)).concat(['<a href="#reto-desde-cero">Reto desde cero</a>','<a href="#resultados">Tests</a>','<a href="#ayuda">Ayuda</a>']).join('');
+$('#nav').innerHTML = ['<a href="#ahora">Ahora</a>','<a href="#agenda">Agenda</a>'].concat(DATA.labs.map(l => `<a href="#lab${l.id}">Lab ${l.id}</a>`)).concat(['<a href="#resultados">Tests</a>','<a href="#recursos">Recursos</a>','<a href="#ayuda">Ayuda</a>']).join('');
 const whoTxt = {tu:'TÚ', agent:'AGENTE', decide:'DECIDE UNA PERSONA'};
 let n = 0;
 $('#labsBox').innerHTML = DATA.labs.map(l => `
