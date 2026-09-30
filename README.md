@@ -13,6 +13,15 @@ Trabajaremos sobre Customer Follow-up: reglas de fechas, revisión persistida y 
 
 Este repositorio es la entrada de la sesión. Tu código y tus evidencias van en tu copia de la [plantilla común](https://github.com/javiarmesto/aldc-workshop-lab), no en este portal. No necesitas acceder al repositorio privado de los ponentes.
 
+## Reto opcional · Desarrollar desde cero con ALDC
+
+Después de los ocho laboratorios, aplica lo aprendido con **Customer Follow-up desde requisitos**: parte del encargo de negocio y de un proyecto AL vacío, prepara arquitectura y especificación, implementa y registra las comprobaciones.
+
+- [Abrir el ejercicio y preparar el proyecto](https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/customerfollowup-requisitos/README.md).
+- [Leer los requisitos de negocio](https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/customerfollowup-requisitos/requirements.es.md).
+
+Es un ejercicio independiente, en otra carpeta. La guía del reto en `main` contiene sus instrucciones de preparación; los ocho laboratorios mantienen la revisión de la edición.
+
 ## Antes de asistir
 
 Completa la preparación antes de la jornada. Necesitarás una cuenta de GitHub, acceso a GitHub Copilot, VS Code/Insiders con las herramientas indicadas y un sandbox de Business Central. Usa tus conexiones y confirma con los ponentes la organización del sandbox.

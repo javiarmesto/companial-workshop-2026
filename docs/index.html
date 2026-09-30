@@ -103,6 +103,7 @@ footer{padding:36px 0 50px;color:var(--muted);font-size:13px}
     <a class="primary" href="#ahora">Qué toca ahora</a>
     <a href="https://github.com/javiarmesto/aldc-workshop-lab">Plantilla (tu copia sale de aquí)</a>
     <a href="https://github.com/javiarmesto/companial-workshop-2026/blob/main/MANUAL-ASISTENTE.md">Manual de preparación</a>
+    <a href="#reto-desde-cero">Reto desde cero</a>
     <a href="#ayuda">Ayuda</a>
   </div>
 </div></header>
@@ -128,6 +129,16 @@ footer{padding:36px 0 50px;color:var(--muted);font-size:13px}
     <h2><span class="tag">LABS</span> Los ocho laboratorios</h2>
     <div class="legend"><span><span class="who tu">TÚ</span>lo haces tú</span><span><span class="who agent">AGENTE</span>prompt para el agente</span><span><span class="who decide">DECIDE UNA PERSONA</span>aprobación humana</span><span>Los textos entre <code>&lt;…&gt;</code> se rellenan con tus datos.</span></div>
     <div id="labsBox"></div>
+  </section>
+
+  <section id="reto-desde-cero">
+    <h2><span class="tag">RETO OPCIONAL</span> Desarrollar desde cero con ALDC</h2>
+    <div class="card">
+      <p style="margin-top:0"><b>Customer Follow-up desde requisitos.</b> Después de los ocho laboratorios, empieza con el encargo de negocio y un proyecto AL vacío en otra carpeta.</p>
+      <p>Prepara arquitectura y especificación, revisa las decisiones con una persona, implementa el cambio y registra las comprobaciones y la revisión.</p>
+      <p><a href="https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/customerfollowup-requisitos/README.md"><b>Abrir el ejercicio y preparar el proyecto</b></a> · <a href="https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/customerfollowup-requisitos/requirements.es.md">Leer los requisitos de negocio</a></p>
+      <p class="foot-link">La guía del reto en <code>main</code> contiene sus instrucciones de preparación. Los ocho laboratorios mantienen la revisión de la edición.</p>
+    </div>
   </section>
 
   <section id="resultados">
@@ -176,7 +187,7 @@ const hl = s => esc(s).replace(/&lt;[^&\n]{1,60}?&gt;/g, m => `<span class="ph">
 const store = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set(k,v){ try { localStorage.setItem(k,v); } catch(e){} } };
 
 // nav + labs
-$('#nav').innerHTML = ['<a href="#ahora">Ahora</a>','<a href="#agenda">Agenda</a>'].concat(DATA.labs.map(l => `<a href="#lab${l.id}">Lab ${l.id}</a>`)).concat(['<a href="#resultados">Tests</a>','<a href="#ayuda">Ayuda</a>']).join('');
+$('#nav').innerHTML = ['<a href="#ahora">Ahora</a>','<a href="#agenda">Agenda</a>'].concat(DATA.labs.map(l => `<a href="#lab${l.id}">Lab ${l.id}</a>`)).concat(['<a href="#reto-desde-cero">Reto desde cero</a>','<a href="#resultados">Tests</a>','<a href="#ayuda">Ayuda</a>']).join('');
 const whoTxt = {tu:'TÚ', agent:'AGENTE', decide:'DECIDE UNA PERSONA'};
 let n = 0;
 $('#labsBox').innerHTML = DATA.labs.map(l => `
