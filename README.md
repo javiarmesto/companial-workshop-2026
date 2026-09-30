@@ -22,6 +22,15 @@ Después de los ocho laboratorios, aplica lo aprendido con **Customer Follow-up 
 
 Es un ejercicio independiente, en otra carpeta. La guía del reto en `main` contiene sus instrucciones de preparación; los ocho laboratorios mantienen la revisión de la edición.
 
+
+### Mini ejemplo · Referencia del cliente al liberar pedidos
+
+Un segundo reto para explicar ALDC con una regla pequeña: impedir que se liberen los pedidos de determinados clientes cuando falta el N.º documento externo. Parte de un proyecto AL vacío e incluye decisiones humanas, casos de aceptación y un guion de demostración.
+
+- [Preparar el mini reto](https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/referencia-cliente-requisitos/README.md).
+- [Leer los requisitos y los casos](https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/referencia-cliente-requisitos/requirements.es.md).
+- [Guion para explicar ALDC](https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/referencia-cliente-requisitos/guion-demo.es.md).
+
 ## Antes de asistir
 
 Completa la preparación antes de la jornada. Necesitarás una cuenta de GitHub, acceso a GitHub Copilot, VS Code/Insiders con las herramientas indicadas y un sandbox de Business Central. Usa tus conexiones y confirma con los ponentes la organización del sandbox.
