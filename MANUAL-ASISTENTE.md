@@ -151,6 +151,6 @@ Antes del commit, revisa que `git status` no incluye `launch.json`, archivos `.a
 | No puedo publicar en el sandbox | Revisa tenant y sandbox en `launch.json` y que tu usuario puede publicar extensiones |
 | Fallan otros tests además de C02, C03, C04, C11 y C12 | Anota cuáles y el mensaje; lo revisamos al empezar |
 
-Guía detallada, por si quieres más contexto: [preparación completa](https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/docs/preflight.md) · [ayuda](https://github.com/javiarmesto/aldc-workshop-lab/blob/c6f347329e7c0a879441f8f78a2ddaecc975c04c/docs/help.md).
+Guía detallada, por si quieres más contexto: [preparación completa](https://github.com/javiarmesto/aldc-workshop-lab/blob/11e05d37db2953d3fd9cf1726977daf2eaf5e688/docs/preflight.md) · [ayuda](https://github.com/javiarmesto/aldc-workshop-lab/blob/11e05d37db2953d3fd9cf1726977daf2eaf5e688/docs/help.md).
 
 Cuando nos escribas, **nunca** incluyas contraseñas, tokens ni datos de clientes.

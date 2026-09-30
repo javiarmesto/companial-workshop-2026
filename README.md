@@ -7,7 +7,7 @@ Crea extensiones de Business Central con flujos de trabajo inteligentes.
 
 **[Manual del asistente: prepárate antes del 1 de octubre](MANUAL-ASISTENTE.md)**
 
-[Empieza aquí](START-HERE.md) · [Agenda](AGENDA.md) · [Laboratorios](LABS.md) · [Presentación](slides/README.md)
+[Página de la jornada](https://javiarmesto.github.io/companial-workshop-2026/) · [Empieza aquí](START-HERE.md) · [Agenda](AGENDA.md) · [Laboratorios](LABS.md)
 
 Trabajaremos sobre Customer Follow-up: reglas de fechas, revisión persistida y un proceso que otra persona pueda comprobar. Practicarás instrucciones, skills, un plugin, diseño y especificación con ALDC, implementación delegada, revisión BCQuality y distribución de contexto con APM.
 
@@ -21,6 +21,6 @@ Completa la preparación antes de la jornada. Necesitarás una cuenta de GitHub,
 
 ## Edición
 
-Material en preparación. [Revisión de referencia](edition.json). El acceso a la plantilla debe estar habilitado para poder crear tu copia. Las slides se incorporarán a este portal cuando se cierre la edición.
+Edición abierta. La plantilla está congelada en la [revisión de referencia](edition.json) (tag `edicion-companial-2026`): crea tu copia con **Use this template**. Durante la jornada, usa la [página de la jornada](https://javiarmesto.github.io/companial-workshop-2026/) para la agenda y los prompts. No necesitas las slides para seguir los laboratorios.
 
 [Ayuda](SUPPORT.md) · [Licencias y créditos](LICENSE-SCOPE.md).

@@ -2,17 +2,17 @@
   "schemaVersion": 1,
   "event": "companial-workshop-2026",
   "language": "es",
-  "status": "preparation",
+  "status": "open",
   "speakers": [
     "Roberto Corella",
     "Javier Armesto"
   ],
   "template": {
     "repository": "javiarmesto/aldc-workshop-lab",
-    "documentationRef": "c6f347329e7c0a879441f8f78a2ddaecc975c04c",
+    "documentationRef": "11e05d37db2953d3fd9cf1726977daf2eaf5e688",
     "refStatus": "frozen",
     "tag": "edicion-companial-2026",
-    "creation": "Use this template copies current main; main is locked at this ref for the event"
+    "creation": "Use this template copies current main; main is locked at this ref (tag edicion-companial-2026) for the event"
   },
   "slides": {
     "status": "pending",
@@ -25,5 +25,6 @@
     "venue": "Microsoft Ibérica, Sala Santiago Dexeus, Madrid",
     "format": "in-person, max 24 participants",
     "source": "https://companial.com/workshops/de-asistentes-de-ia-a-ingenieria-de-agentes-crea-extensiones-de-business-central-con-flujos-de-trabajo-inteligentes/"
-  }
+  },
+  "landing": "https://javiarmesto.github.io/companial-workshop-2026/"
 }
