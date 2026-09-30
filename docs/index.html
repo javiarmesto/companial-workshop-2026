@@ -109,6 +109,7 @@ footer{padding:36px 0 50px;color:var(--muted);font-size:13px}
     <a class="primary" href="#ahora">Qué toca ahora</a>
     <a href="https://github.com/javiarmesto/aldc-workshop-lab">Plantilla (tu copia sale de aquí)</a>
     <a href="https://github.com/javiarmesto/companial-workshop-2026/blob/main/MANUAL-ASISTENTE.md">Manual de preparación</a>
+    <a href="#reto-desde-cero">Retos desde cero</a>
     <a href="#recursos">Recursos y ALDC</a>
     <a href="#ayuda">Ayuda</a>
   </div>
@@ -135,6 +136,24 @@ footer{padding:36px 0 50px;color:var(--muted);font-size:13px}
     <h2><span class="tag">LABS</span> Los ocho laboratorios</h2>
     <div class="legend"><span><span class="who tu">TÚ</span>lo haces tú</span><span><span class="who agent">AGENTE</span>prompt para el agente</span><span><span class="who decide">DECIDE UNA PERSONA</span>aprobación humana</span><span>Los textos entre <code>&lt;…&gt;</code> se rellenan con tus datos.</span></div>
     <div id="labsBox"></div>
+  </section>
+
+  <section id="reto-desde-cero">
+    <h2><span class="tag">RETOS OPCIONALES</span> Desarrollar desde cero con ALDC</h2>
+    <p>Ejemplos independientes para aplicar el recorrido de requisito, arquitectura, decisión humana, especificación, implementación y revisión.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3 style="margin-top:0">Referencia del cliente al liberar pedidos</h3>
+        <p>Un mini ejemplo: impedir la liberación de los pedidos de los clientes que exigen referencia cuando falta el N.º documento externo. Empieza con los requisitos y un proyecto AL vacío.</p>
+        <p><a href="https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/referencia-cliente-requisitos/README.md"><b>Preparar el mini reto</b></a> · <a href="https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/referencia-cliente-requisitos/requirements.es.md">Requisitos y casos</a> · <a href="https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/referencia-cliente-requisitos/guion-demo.es.md">Guion para explicar ALDC</a></p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Customer Follow-up desde requisitos</h3>
+        <p>Después de los ocho laboratorios, desarrolla el seguimiento de clientes desde el encargo de negocio, en otra carpeta y con App y Test vacíos.</p>
+        <p><a href="https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/customerfollowup-requisitos/README.md"><b>Preparar el proyecto</b></a> · <a href="https://github.com/javiarmesto/aldc-workshop-lab/blob/main/challenges/customerfollowup-requisitos/requirements.es.md">Requisitos de negocio</a></p>
+      </div>
+    </div>
+    <p class="foot-link">Las guías de los retos en <code>main</code> contienen sus instrucciones de preparación. Los ocho laboratorios mantienen la revisión de la edición. Los retos no incluyen una solución AL ni resultados de ejecución.</p>
   </section>
 
   <section id="resultados">
@@ -196,7 +215,7 @@ const hl = s => esc(s).replace(/&lt;[^&\n]{1,60}?&gt;/g, m => `<span class="ph">
 const store = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set(k,v){ try { localStorage.setItem(k,v); } catch(e){} } };
 
 // nav + labs
-$('#nav').innerHTML = ['<a href="#ahora">Ahora</a>','<a href="#agenda">Agenda</a>'].concat(DATA.labs.map(l => `<a href="#lab${l.id}">Lab ${l.id}</a>`)).concat(['<a href="#resultados">Tests</a>','<a href="#recursos">Recursos</a>','<a href="#ayuda">Ayuda</a>']).join('');
+$('#nav').innerHTML = ['<a href="#ahora">Ahora</a>','<a href="#agenda">Agenda</a>'].concat(DATA.labs.map(l => `<a href="#lab${l.id}">Lab ${l.id}</a>`)).concat(['<a href="#reto-desde-cero">Retos desde cero</a>','<a href="#resultados">Tests</a>','<a href="#recursos">Recursos</a>','<a href="#ayuda">Ayuda</a>']).join('');
 const whoTxt = {tu:'TÚ', agent:'AGENTE', decide:'DECIDE UNA PERSONA'};
 let n = 0;
 $('#labsBox').innerHTML = DATA.labs.map(l => `
